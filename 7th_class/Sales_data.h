@@ -6,23 +6,30 @@
 using namespace std;
 
 class Sales_data {
-public:
-	Sales_data(string isbn, unsigned unit_sold, double revenue): isbn(isbn), \
-		units_sold(unit_sold), revenue(revenue) {}
-	string ISBN() { return this->isbn; }
-	Sales_data& combine(Sales_data data);
-	Sales_data* add(Sales_data data1, Sales_data data2) {
-		return new Sales_data(data1.isbn, data1.units_sold, data1.revenue + data2.revenue);
-	}
-	void read(istream& cin, int trans) {
-		
-	}
-	double avg_price() const;
 
+friend Sales_data add(Sales_data& data1, Sales_data& data2);
+friend istream& read(istream& is, Sales_data& trans);
+friend ostream& print(ostream& os, const Sales_data&);
+
+public:
+	Sales_data() = default;
+	Sales_data(string isbn, unsigned unit_sold, double revenue): isbn(isbn), \
+		units_sold(unit_sold), revenue(revenue * unit_sold) {}
+	Sales_data(string isbn);
+	Sales_data(const Sales_data &data);
+	Sales_data(Sales_data* data);
+	//Sales_data(istream& is) { read(is, *this); }
+	string ISBN() { return this->isbn; }
+	Sales_data &combine(Sales_data &data);
+
+	~Sales_data();
+	
 private:
 	string isbn;
+	double avg_price() const;
 	unsigned units_sold;
 	double revenue;
+
 };
 
 
