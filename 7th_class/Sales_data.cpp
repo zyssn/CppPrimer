@@ -28,10 +28,6 @@ Sales_data::Sales_data(Sales_data* data)
 Sales_data::~Sales_data(){
 }
 
-double Sales_data::avg_price() const {
-	return units_sold == 0 ? 0 : revenue / units_sold;
-}
-
 Sales_data add(Sales_data &data1, Sales_data &data2) {
 	Sales_data sum = data1;
 	sum.combine(data2);

@@ -21,17 +21,20 @@ public:
 	//Sales_data(istream& is) { read(is, *this); }
 	string ISBN() { return this->isbn; }
 	Sales_data &combine(Sales_data &data);
-
+	inline double avg_price() const;
 	~Sales_data();
 	
 private:
 	string isbn;
-	double avg_price() const;
 	unsigned units_sold;
 	double revenue;
 
 };
 
+
+double Sales_data::avg_price() const {
+	return units_sold == 0 ? 0 : (double)revenue / units_sold;
+}
 
 #endif // !SALES_DATA_H
 
