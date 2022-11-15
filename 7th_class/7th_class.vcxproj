@@ -127,13 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Constructor.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Sales_data.cpp" />
     <ClCompile Include="Screen.cpp" />
+    <ClCompile Include="task.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\5th_function\print.h" />
+    <ClInclude Include="Constructor.h" />
     <ClInclude Include="Sales_data.h" />
     <ClInclude Include="Screen.h" />
+    <ClInclude Include="task.h" />
+    <ClInclude Include="Window_mgr.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

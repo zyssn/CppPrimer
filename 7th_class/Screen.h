@@ -2,11 +2,18 @@
 #define __SCREEN_H__
 
 #include <string>
+//#include "Window_mgr.h"
+
 using namespace std;
 
+extern int height;
 
 class Screen
 {
+	//哪个类需要引用当前类的私有成员，则将其设置为友元函数
+	//friend class Window_mgr;
+	//也可以将单个函数引用为友元函数
+	//friend void Window_mgr::clear(ScreenIndex i);
 public:
 	typedef string::size_type pos;
 	Screen() = default;
@@ -16,23 +23,22 @@ public:
 
 	//注：inline函数的引用和定义都必须在头文件中
 	inline char get(pos r, pos c) const;
+	inline Screen &set(char c);
+	//先调用函数参数、在调用成员变量，最后调用类外变量
+	int bigCur() { return width * ::height; }
+	int midCur() { return width * height; }
+	int smallCur(int height = 10) { return width * height; }
 	Screen& move(pos r, pos c);
 	void some_where() const;
 
 private:
 	pos cursor = 0;
 	pos height = 0;
-	pos width = 0;
+	pos width = 10;
 	string contents;
 
-	mutable pos index;
+	mutable pos index = 0;
 };
 
-char Screen::get(pos r, pos c) const
-{
-	pos row = r * width;
-
-	return contents[row + c];
-}
 
 #endif

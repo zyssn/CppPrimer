@@ -19,3 +19,17 @@ void Screen::some_where() const
 }
 
 
+char Screen::get(pos r, pos c) const
+{
+	pos row = r * width;
+	
+	return contents[row + c];
+}
+
+Screen& Screen::set(char c) {
+    contents[cursor] = c;
+    return *this;
+}
+
+int height = 100;
+

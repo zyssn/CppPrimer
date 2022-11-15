@@ -24,12 +24,30 @@
     <ClCompile Include="Screen.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="task.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Constructor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sales_data.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Screen.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="task.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Window_mgr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\5th_function\print.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Constructor.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

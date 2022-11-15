@@ -1,11 +1,16 @@
 #include<iostream>
 #include "Sales_data.h"
 #include "Screen.h"
+#include "../5th_function/print.h"
+//#include "task.h"
+//#include "Window_mgr.h"
 
 using namespace std;
 
-//#define SCREENS 1
-#define SALES 2
+#define SCREENS 1
+//#define SALES 2
+//#define TASK 3
+
 
 #ifdef SALES
 int main() {
@@ -24,17 +29,38 @@ int main() {
 #endif
 
 #ifdef SCREENS
+#include "Constructor.h"
+
 int main() {
-	Screen myscreen(1, 5, 'a');
+	Screen myscreen(4, 5, 'a');
 	cout << myscreen.Content() << endl;
 
-	const char ch = myscreen.get(0, 1);
+	cout << myscreen.Content() << endl;
+	print(myscreen.bigCur());
+	print(myscreen.midCur());
+	print(myscreen.smallCur());
 
-	cout << ch << endl;
+	int a = 3;
+	Constructor c();	//错、无法调用常量、引用值、类变量
+	Constructor c2(a);
+	// c.print_j()		//错
+	c2.print_j();
 
 	return 0;
 }
 
 #endif
+
+#ifdef TASK
+
+int main() {
+	X x;
+	cout << sizeof(x) << endl;
+
+	return 0;
+}
+
+#endif // TASK
+
 
     
