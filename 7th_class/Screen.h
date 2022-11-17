@@ -2,6 +2,7 @@
 #define __SCREEN_H__
 
 #include <string>
+#include <iostream>
 //#include "Window_mgr.h"
 
 using namespace std;

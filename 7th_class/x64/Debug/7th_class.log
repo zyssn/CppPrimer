@@ -1,6 +1,2 @@
 ﻿  main.cpp
-G:\c++\CppPrimer\7th_class\Screen.h(28,15): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
-G:\c++\CppPrimer\7th_class\Screen.h(29,15): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
-G:\c++\CppPrimer\7th_class\Screen.h(30,32): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
-G:\c++\CppPrimer\7th_class\main.cpp(44,14): warning C4930: “Constructor c(void)”: 未调用原型函数(是否是有意用变量定义的?)
   7th_class.vcxproj -> G:\c++\CppPrimer\7th_class\x64\Debug\7th_class.exe

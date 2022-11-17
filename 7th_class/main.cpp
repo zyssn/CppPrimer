@@ -1,6 +1,6 @@
 #include<iostream>
 #include "Sales_data.h"
-#include "Screen.h"
+//#include "Screen.h"
 #include "../5th_function/print.h"
 //#include "task.h"
 //#include "Window_mgr.h"
@@ -32,19 +32,28 @@ int main() {
 #include "Constructor.h"
 
 int main() {
-	Screen myscreen(4, 5, 'a');
-	cout << myscreen.Content() << endl;
+	//Screen myscreen(4, 5, 'a');
+	//cout << myscreen.Content() << endl;
 
-	cout << myscreen.Content() << endl;
-	print(myscreen.bigCur());
-	print(myscreen.midCur());
-	print(myscreen.smallCur());
+	//cout << myscreen.Content() << endl;
+	//print(myscreen.bigCur());
+	//print(myscreen.midCur());
+	//print(myscreen.smallCur());
 
-	int a = 3;
-	Constructor c();	//错、无法调用常量、引用值、类变量
+	int a = 3, b = 4;
+	//Constructor c();	//错、无法调用常量、引用值、类变量
 	Constructor c2(a);
+	Constructor c1(b);
 	// c.print_j()		//错
 	c2.print_j();
+
+	cout << "begin:-----------------------------------------" << endl;
+	c1.print_t();
+	c2.print_t();
+	c2.add_t();
+	cout << "changed:-----------------------------------------" << endl;
+	c2.print_t();
+	c1.print_t();
 
 	return 0;
 }
