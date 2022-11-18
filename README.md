@@ -109,9 +109,74 @@ Data data1 = {0, "Jack"};	//正确
 
 ## 8.1、 IO类
 
+| 头文件   | 类型(w表示宽字节)                  |
+| -------- | ---------------------------------- |
+| iostream | istream, wistream 从流读取数据     |
+|          | ostream, wostream 向流写入数据     |
+|          | iostream, wiostream 读写流         |
+| fstream  | ifstream, wifstream 从文件读取数据 |
+|          | ofstream, wofstream 向文件写入数据 |
+|          | fstream, wfstream 读写文件         |
+| sstream  | istream, wistream 从string读取数据 |
+|          | ostream, wostream 向string写入数据 |
+|          | iostream, wiostream 读写string     |
+
+​	 2            1           0
+
+<span alt="modern">bad</span><span alt="modern">fail</span><span alt="modern">eof</span>				//寄存器分布
+
+```c++
+#include <iostream>
+using namespace std;
+
+//使用cin.clear()函数可以操作默认的寄存器
+int main() {
+	istream &is = cin;
+	int a;
+	cin >> a;
+	auto old_state = cin.rdstate();
+	cin.clear(~cin.badbit);
+	if (cin.good())
+		print("good!");
+	if (cin.fail())
+		print("fail!");
+	print(old_state);
+	return 0;
+}
+```
+
+<font>操作符</font>
+
+- endl:输出缓冲区内容及换行，然后刷新缓冲区
+- ends:输出缓冲区及<span alt="emp">空字符</span>，然后刷新缓冲区
+- flush:刷新缓冲区，不加任何内容
+- unitbuf:任何输入操作都会立刻flush一次缓冲区
+- nounibuf:停止unibuf，恢复正常刷新
+
+<span style="color:red">程序崩溃，缓冲区不会被刷新</span>
+
+<font>关联输入和输出流</font>
+
+可以将一个istream关联到另一个ostream上，切换时立即刷新关联的ostream
+
+```c++
+cin.tie(&cout);
+ostream *old_tie = cin.tie(nullptr);
+cin.tie(&cerr);		//切换后cin会刷新cerr而不再是cout
+cin.tie(old_tie);
+```
+
 
 
 ## 8.2、 文件输入输出
+
+| fstream fstrm           | 创建文件流                    |
+| ----------------------- | ----------------------------- |
+| fstream fstrm(s)        | 创建文件流，并打开s           |
+| fstream fstrm(s,  mode) | 创建文件流，并以mode模式打开s |
+| fstrm.open(s)           | 返回void                      |
+| fstrm.close()           | 返回void                      |
+| fstrm.is_open()         | 返回bool值                    |
 
 
 
