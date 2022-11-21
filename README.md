@@ -170,6 +170,8 @@ cin.tie(old_tie);
 
 ## 8.2、 文件输入输出
 
+#include <fstream>
+
 | fstream fstrm           | 创建文件流                    |
 | ----------------------- | ----------------------------- |
 | fstream fstrm(s)        | 创建文件流，并打开s           |
@@ -178,6 +180,66 @@ cin.tie(old_tie);
 | fstrm.close()           | 返回void                      |
 | fstrm.is_open()         | 返回bool值                    |
 
+<font>mode选取</font>
 
+| in     | 读                       |
+| ------ | ------------------------ |
+| out    | 写                       |
+| app    | 每次都在末尾写           |
+| ate    | 打开文件后立即定位到末尾 |
+| trunc  | 截断                     |
+| binary | 二进制方式               |
 
-## 8.3、 string流
+## 8.3、string输入输出
+
+#include <sstream>:分为istringstream和ostringstream
+
+使用stringstream可以极大提高处理字符串效率
+
+```c++
+/*给定文件内容为：
+morgan 2015555151 865542151
+drew 251961616
+lee 165132464 65326984 654632494 
+*///将其读入如下向量中
+struct Person {
+	string name;
+	vector<string> phones;
+};
+fstream fs1;
+fs1.open("a.txt", fstream::in);
+vector<Person> ps;
+string str = "";
+//无sstream版
+while (getline(fs1, str)) {
+    string name;
+    vector<string> personInfo;
+    name = str.substr(0, str.find(' '));
+    int index = 0;
+    str = str.substr(str.find(' ') + 1);
+    do {
+        if ((index = str.find(' ')) != -1)
+            personInfo.push_back(str.substr(0, index));
+        else {
+            personInfo.push_back(str);
+            break;
+        }
+        str = str.substr(str.find(' ') + 1);
+    } while (str != "");
+    ps.push_back({ name, personInfo });
+}
+//有sstream版
+fstream fs2;
+fs2.open("a.txt", fstream::in);
+while (getline(fs2, str)) {
+    vector<string> personInfo;
+    string name = "", word = "";
+    istringstream is(str);
+    is >> name;
+    while (is >> word) {
+        personInfo.push_back(word);
+    }
+    ps.push_back({ name, personInfo });
+}
+```
+

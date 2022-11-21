@@ -3,7 +3,8 @@
 using namespace std;
 
 //#define INOUT 1
-#define FINOUT 2
+//#define FINOUT 2
+#define STRIO 3
 
 #ifdef INOUT
 
@@ -34,10 +35,10 @@ int main() {
 
 #ifdef FINOUT
 #include <fstream>
-#include"../../CppPrimer/.vs/CppPrimer/"
-int main() {
+
+int main(char* argc, char** argv) {
 	fstream fs;
-	fs.open("../a.txt", 'rw+');
+	fs.open("1.jepg", fstream::out | fstream::binary);
 	if (fs.is_open())
 		cout << "opened!" << ends;
 	fs.write("xyz", 3);
@@ -48,3 +49,61 @@ int main() {
 
 #endif // 
 
+#ifdef STRIO
+#include <sstream>
+#include <string>
+#include <fstream>
+
+struct Person {
+	string name;
+	vector<string> phones;
+};
+
+int main(char* argc, char** argv) {
+	fstream fs1;
+	fs1.open("a.txt", fstream::in);
+	vector<Person> ps;
+	string str = "";
+	//ÎÞsstream°æ
+	while (getline(fs1, str)) {
+		string name;
+		vector<string> personInfo;
+		name = str.substr(0, str.find(' '));
+		int index = 0;
+		str = str.substr(str.find(' ') + 1);
+		do {
+			
+			if ((index = str.find(' ')) != -1)
+				personInfo.push_back(str.substr(0, index));
+			else {
+				personInfo.push_back(str);
+				break;
+			}
+			str = str.substr(str.find(' ') + 1);
+		} while (str != "");
+		ps.push_back({ name, personInfo });
+	}
+	//ÓÐsstream°æ
+	fstream fs2;
+	fs2.open("a.txt", fstream::in);
+	while (getline(fs2, str)) {
+		vector<string> personInfo;
+		string name = "", word = "";
+		istringstream is(str);
+		is >> name;
+		while (is >> word) {
+			personInfo.push_back(word);
+		}
+		ps.push_back({ name, personInfo });
+	}
+
+	ostringstream os;
+	string s = "asda ";
+	os << s << "asdas" << " " << "afas ";
+	cout << os.str() << endl;
+
+	return 0;
+
+}
+
+#endif // 
