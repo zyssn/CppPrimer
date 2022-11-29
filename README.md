@@ -243,3 +243,78 @@ while (getline(fs2, str)) {
 }
 ```
 
+# 9、 顺序容器
+
+## 9.1 顺序容器
+
+### 顺序容器
+
+<font>forward_list</font>、<font>list</font>、<font>vector</font>、<font>deque</font>、<font>string</font>、加一个特殊的 <font style="background-color:green"> array </font>
+
+### 初始化、swap、赋值assign
+
+### 关系运算符
+
+除array外，其他同种泛型的变量可以进行大小比较
+
+## 顺序容器操作
+
+### 添加元素
+
+​	forward_list有自己的insert和emplace函数，不支持push_back和emplace_back函数
+
+​	vector和string不支持push_front和emplace_front函数
+
+| emplace_back()/push_back()   |                      |
+| ---------------------------- | -------------------- |
+| push_front()/emplace_front() |                      |
+| insert(p, t)                 | 在迭代器p之前插入值t |
+| insert(p, n, t)              |                      |
+| insert(p, il)                | p前插入元素值列表il  |
+| emplace(p, args)             |                      |
+
+### 删除元素
+
+​	array不能删除元素
+
+​	forward_list有自己的erase 函数，不支持pop_back函数
+
+​	vector和string不支持pop_front函数
+
+| pop_back()  |                                         |
+| ----------- | --------------------------------------- |
+| pop_front() |                                         |
+| erase(p)    | p---迭代器                              |
+| erase(b, e) | 迭代器范围[b, e],返回下一个位置的迭代器 |
+| clear()     |                                         |
+
+### forward_list
+
+| lst.before_begin()         | 返回首元素之前的迭代器，不可以解引用                  |
+| :------------------------- | ----------------------------------------------------- |
+| lst.cbefore_begin()        |                                                       |
+| lst.insert_after(p, t)     |                                                       |
+| lst.insert_after(p, n, t)  |                                                       |
+| lst.insert_after(p, b, e)  | b,e是其他容器的迭代器，将其他容器b-e之间元素插入p位置 |
+| lst.insert_after(p, il)    |                                                       |
+| lst.emplace_after(p, args) |                                                       |
+| lst.erase_after(p)         |                                                       |
+| lst.erase_after(b, e)      |                                                       |
+
+### resize
+
+resize不能用于array
+
+| tem.resize(n)    |      |
+| ---------------- | ---- |
+| tem.resize(n, m) |      |
+
+## 适配器
+
+<font>适配器(adaptor)</font>：是一种通用概念，其接受一种已有的容器类型，使行为看起来像另一种类型，例如栈，底层可以是vector，行为就是栈的行为。
+
+| size_type  | 当前类型最大对象的大小 |
+| ---------- | ---------------------- |
+| value_type | 元素类型               |
+|            |                        |
+
