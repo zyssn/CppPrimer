@@ -41,8 +41,16 @@ void print() {
 	cout << endl;
 }
 
+template<typename T>
+void print(vector<T> arrs) {
+	for (auto arr : arrs) {
+		cout << arr << " ";
+	}
+	cout << endl;
+}
+
 template<typename T, typename... Args>
-void print(const T& t, const Args&... args) {
+void print(T& t, Args&... args) {
 	cout << t << " ";
 	print(args...);
 }
