@@ -320,4 +320,59 @@ resize不能用于array
 
 # 10、泛型
 
-## 
+## lambda
+
+格式：<span alt="underline">[函数对象参数](函数参数)修饰符->返回值类型{函数体}</span>
+
+## bind
+
+#include<functional>,占位符需要使用namespace placeholder
+
+## 迭代器
+
+### 五类迭代器
+
+#### 输入迭代器
+
+实例：istream_iterator,只用于顺序访问以及单项扫面算法，如find(), accumulate()
+
+#### 输出迭代器
+
+实例：ostream_iterator，只写而不读元素，只能向输出迭代器输入一次
+
+```cpp
+//输入迭代器
+istream_iterator<int> int_it(cin);
+istream_iterator<int> int_eof;
+while (int_it != int_eof) {
+    list.push_back(*int_it++);
+}
+print(list);
+
+//输出迭代器
+ostream_iterator<int> out_it(cout, " ");
+for (auto l : list) {
+    *out_it++ = l;
+}
+cout << endl;
+
+copy(list.begin(), list.end(), out_it);
+cout << endl;
+
+```
+
+#### 前向迭代器
+
+迭代器只能延一个方向移动，可以多次读写同一个元素
+
+#### 双向迭代器
+
+除了支持前向迭代器操作，还支持++和--操作，forward_list上的迭代器全部是前向迭代器。
+
+#### 随机访问迭代器
+
+提供在常量时间内访问序列任意元素的能力，还支持双向迭代器的所有功能。
+
+### 特定容器算法
+
+对于<font>list</font>、<font>forward_list</font>，应该优先使用成员函数版本，而不是通用算法。
