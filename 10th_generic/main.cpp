@@ -139,6 +139,9 @@ int main() {
 		return hash[a] != 0;
 		});
 	ist.reverse();
+	ist2.insert_after(ist2.before_begin(), { 10,11,12 });
+	//splite()、splite_after()函数用于在指定位置后插入另一个list,结果会清空插入的list
+	ist.splice_after(ist.before_begin(), ist2);
 	auto list_it = ist.begin();
 	for (; list_it != ist.end(); ) {
 		cout << *list_it++ << " ";

@@ -376,3 +376,87 @@ cout << endl;
 ### 特定容器算法
 
 对于<font>list</font>、<font>forward_list</font>，应该优先使用成员函数版本，而不是通用算法。
+
+```cpp
+forward_list<int> ist{ 1,2,3,7,8,9,3,3 };
+forward_list<int> ist2{ 4,5,6 };
+ist.sort([](int a, int b) {
+	return a < b;
+});
+
+ist.merge(ist2);
+unordered_map<int, int> hash;
+for_each(ist.begin(), ist.end(), [&hash](int a) {
+	hash[a]++;
+});
+
+ist.remove_if([&hash](int a) -> bool{
+	hash[a]--;
+	return hash[a] != 0;
+});
+ist.reverse();
+
+auto list_it = ist.begin();
+for (; list_it != ist.end(); ) {
+	cout << *list_it++ << " ";
+}
+cout << endl;
+```
+
+# 关联容器
+
+## set、map
+
+set--------------------集合，元素有序且不重复
+
+multiset-------------集合，元素有序且不重复
+
+map------------------字典，有序键值对，key不重复
+
+multimap-----------字典，有序键值对，key可重复
+
+------
+
+unordered_set--------------------集合，元素无序且不重复
+
+unordered_multiset-------------集合，元素无序且不重复
+
+unordered_map------------------字典，键值对，key不重复
+
+unordered_multimap-----------字典，键值对，key可重复
+
+### pair
+
+#### 构造函数
+
+pair<T1, T2> p;
+
+pair<T1, T2> p(v1, v2);
+
+pair<T1, T2> p = {v1, v2};
+
+#### 操作
+
+auto p = make_pair(v1, v2)
+
+p.first
+
+p.second
+
+#### 比较
+
+a == b   <=>  (a.first == b.first && a.second == b.second)
+
+a > b     <=>  (a.first > b.first || (a.first == b.first && a.second > b.second))
+
+a != b    <=>  (!(a==b))
+
+
+
+## multimap、multiset
+
+与set，map区别：
+
+1. 可以有重复的值（或key值）
+2. 可以使用find，lower_bound(), upper_bound()、equal_range()函数
+3. 

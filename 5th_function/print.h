@@ -45,9 +45,33 @@ void print() {
 template<typename T>
 void print(vector<T> arrs) {
 	for (auto arr : arrs) {
+		
 		cout << arr << " ";
 	}
 	cout << endl;
+}
+
+template<typename T1, typename T2>
+void print(unordered_multimap<T1, T2> arrs) {
+	for (auto arr : arrs) {
+		cout << "key : " << arr.first << ", value : " << arr.second << endl;
+	}
+	cout << endl;
+}
+
+template<typename T1, typename T2>
+void print(vector<pair<T1, T2>> arrs) {
+	for (auto arr : arrs) {
+		cout << "key : " << arr.first << ", value : " << arr.second << endl;
+	}
+	cout << endl;
+}
+
+template<typename T1, typename T2>
+void print(pair<T1, T2> arrs) {
+	for (auto arr : arrs) {
+		cout << "key : " << arr.first << ", value : " << arr.second << endl;
+	}
 }
 
 template<typename T, typename... Args>
