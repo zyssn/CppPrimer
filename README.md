@@ -455,8 +455,58 @@ a != b    <=>  (!(a==b))
 
 ## multimap、multiset
 
-与set，map区别：
+### 与set，map区别：
 
 1. 可以有重复的值（或key值）
 2. 可以使用find，lower_bound(), upper_bound()、equal_range()函数
-3. 
+
+```C++
+
+for (auto it_be = res.lower_bound('a');it_be != res.upper_bound('a'); ++it_be) {
+    cout << "score = " << it_be->second << endl;
+}
+
+for (auto pos = res.equal_range('a'); pos.first != pos.second; ++pos.first) {
+	cout << "score = " << pos.first->second << endl;
+}
+
+cout << res.count('a') << endl;
+auto it = res.find('b');
+while (it != res.upper_bound('b')) {
+    cout << "score = " << it->second << endl;
+    it++;
+}
+```
+
+
+
+# 12、动态内存
+
+## 动态内存与智能指针
+
+### shared_ptr
+
+使用方式同指针，需要指定需要的类型
+
+#### shared_ptr和unique_ptr都支持的操作
+
+| shared_ptr和unique_ptr都支持的操作 |                               |
+| ---------------------------------- | ----------------------------- |
+| shared_ptr<T> sp                   | 空智能指针                    |
+| unique_ptr<T> up                   |                               |
+| p                                  |                               |
+| *p                                 |                               |
+| p->mem                             |                               |
+| p.get()                            | 返回p中保存的指针。要小心使用 |
+| swap(p,  q)                        | 交换p和q指针                  |
+| p.swap(q)                          |                               |
+
+#### shared_ptr独有的操作
+
+| make_shared<T>(args) | 返回一个shared_ptr，指向一个动态分配的类型为T的对象 |
+| -------------------- | --------------------------------------------------- |
+| shared_ptr<T>p(q)    | p是shared_ptr q的拷贝指针，会增加q的计数器          |
+| p = q                | p,q是同种类型，引用导致q计数器减1,p计数器加1        |
+| p.unique()           | 返回p.use_count()==1?                               |
+| p.use_count()        | 返回与p共享对象的智能指针数量，会影响速度           |
+

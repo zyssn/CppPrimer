@@ -45,7 +45,6 @@ void print() {
 template<typename T>
 void print(vector<T> arrs) {
 	for (auto arr : arrs) {
-		
 		cout << arr << " ";
 	}
 	cout << endl;

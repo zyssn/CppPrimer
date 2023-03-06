@@ -67,8 +67,6 @@ int main() {
     //copy(vecStr.begin(), vecStr.end(),  (c));
     //print(c);
 
-    
-
     return 0;
 }
 
@@ -220,19 +218,25 @@ int main() {
     while (it != res.upper_bound('b')) {
         cout << "score = " << it->second << endl;
         it++;
-    }*/
+    }
     int n = res.bucket_count();
     for(int i = 0; i < n; ++i)
         cout << res.bucket_size(i) << endl;
-    cout << res.max_bucket_count() << endl;
+    cout << res.max_bucket_count() << endl;*/
 
-    /*exam1();*/
+    /*exam1();
     cout << res.load_factor() << endl;
 
     vector<int> arr{ 1,2,3,4,2,5,2,4,2,1,6,2,8,2 };
     cout << *lower_bound(arr.begin(), arr.end(), 2) << endl;
 
     if (noexcept(exam1))
-        cout << "Ss" << endl;
+        cout << "Ss" << endl;*/
+
+    string str = "asdas";
+    vector<string> arr;
+    arr.push_back(move(str));
+    cout << arr[0] << endl;
+
     return 0;
 }
