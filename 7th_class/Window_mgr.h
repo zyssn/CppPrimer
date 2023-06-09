@@ -6,7 +6,7 @@
 using namespace std;
 
 class Window_mgr {
-
+	
 private:
 	vector<Screen> screens;
 
@@ -19,7 +19,7 @@ public:
 
 void Window_mgr::clear(ScreenIndex i) {
 	Screen &s = screens[i];
-	s.contents = string(s.height * s.width, ' ');
+	s = Screen(s.getHeight(), s.getWidth(), ' ');
 }
 
 void Window_mgr::print(ScreenIndex i) {

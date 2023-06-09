@@ -7,8 +7,8 @@
 
 using namespace std;
 
-#define SCREENS 1
-//#define SALES 2
+//#define SCREENS 1
+#define SALES 2
 //#define TASK 3
 
 
@@ -16,10 +16,11 @@ using namespace std;
 int main() {
 	Sales_data data("28319", 2, 3);
 
-	cout << data.ISBN() << endl;
-	Sales_data data2(data);
+	cout << data << endl;
+	Sales_data data2;
 
-	cout << data2.ISBN() << endl;
+	cin >> data2;
+	cout << data2 << endl;
 	Sales_data data3 = add(data, data2);
 	cout << data3.avg_price() << endl;
 

@@ -127,11 +127,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="exercise12.1.2.cpp" />
+    <ClCompile Include="exercise_12_2_1.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="QueryResult.cpp" />
     <ClCompile Include="StrBlob.cpp" />
+    <ClCompile Include="StrBlobPtr.cpp" />
+    <ClCompile Include="test.cpp" />
+    <ClCompile Include="TextQuery.cpp" />
+    <ClCompile Include="unique_ptr.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="exercise_12.1.2.h" />
+    <ClInclude Include="exercise_12_2_1.h" />
+    <ClInclude Include="QueryResult.h" />
     <ClInclude Include="StrBlob.h" />
+    <ClInclude Include="StrBlobPtr.h" />
+    <ClInclude Include="test.h" />
+    <ClInclude Include="TextQuery.h" />
+    <ClInclude Include="unique_ptr.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="mountain.txt" />
+    <Text Include="test.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

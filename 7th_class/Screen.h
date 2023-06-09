@@ -25,12 +25,14 @@ public:
 	//注：inline函数的引用和定义都必须在头文件中
 	inline char get(pos r, pos c) const;
 	inline Screen &set(char c);
-	//先调用函数参数、在调用成员变量，最后调用类外变量
-	int bigCur() { return width * ::height; }
-	int midCur() { return width * height; }
-	int smallCur(int height = 10) { return width * height; }
+	//先调用函数参数、在调用成员变量，最后调用类外变量，执行顺序3 2 1
+	int bigCur() { return width * ::height; }					// 1
+	int midCur() { return width * height; }						// 2
+	int smallCur(int height = 10) { return width * height; }	// 3
 	Screen& move(pos r, pos c);
 	void some_where() const;
+	pos getHeight() const { return height; }
+	pos getWidth() const { return width; }
 
 private:
 	pos cursor = 0;

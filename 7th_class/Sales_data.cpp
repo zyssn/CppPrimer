@@ -1,5 +1,6 @@
 #include "Sales_data.h"
 #include <cassert>
+using namespace std;
 
 Sales_data &Sales_data::combine(Sales_data &data) {
 	this->revenue += data.revenue;
@@ -43,3 +44,4 @@ ostream& print(ostream& os, const Sales_data&)
 {
 	return os;
 }
+

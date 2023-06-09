@@ -1,3 +1,2 @@
-﻿  main.cpp
-G:\c++\CppPrimer\8th_IO\main.cpp(76,7): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+﻿  LINK : 没有找到 G:\c++\CppPrimer\8th_IO\x64\Debug\8th_IO.exe 或上一个增量链接没有生成它；正在执行完全链接
   8th_IO.vcxproj -> G:\c++\CppPrimer\8th_IO\x64\Debug\8th_IO.exe
