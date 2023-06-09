@@ -1,2 +1,0 @@
-G:\c++\c++primer\8th_IO\x64\Debug\8th_IO.exe
-G:\c++\CppPrimer\8th_IO\x64\Debug\8th_IO.exe
