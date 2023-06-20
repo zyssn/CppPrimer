@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{3e797a76-4c1a-4db6-9b51-c3cd813de369}</ProjectGuid>
-    <RootNamespace>oop</RootNamespace>
+    <ProjectGuid>{bb2f5fbd-1345-44f6-bdc0-81835b60bd61}</ProjectGuid>
+    <RootNamespace>My15thcopyquery</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,34 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ball.cpp" />
-    <ClCompile Include="Basket.cpp" />
-    <ClCompile Include="Bulk_quote.cpp" />
-    <ClCompile Include="Disc_quote.cpp" />
-    <ClCompile Include="Figure.cpp" />
-    <ClCompile Include="Figure_2D.cpp" />
-    <ClCompile Include="Figure_3D.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Priv_quote.cpp" />
-    <ClCompile Include="proc_quote.cpp" />
-    <ClCompile Include="Quote.cpp" />
-    <ClCompile Include="Rectangle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ball.h" />
-    <ClInclude Include="Basket.h" />
-    <ClInclude Include="Bulk_quote.h" />
-    <ClInclude Include="Disc_quote.h" />
-    <ClInclude Include="Figure.h" />
-    <ClInclude Include="Figure_2D.h" />
-    <ClInclude Include="Figure_3D.h" />
-    <ClInclude Include="Priv_quote.h" />
-    <ClInclude Include="proc_quote.h" />
-    <ClInclude Include="Quote.h" />
-    <ClInclude Include="Rectangle.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="abc.txt" />
+    <Text Include="Alice.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -88,7 +88,7 @@ int main() {
 	/*test_12_1_5_2();*/
 	//sptrRecursionUse();
 
-	testStrBlobPtr();
+	//testStrBlobPtr();
 
 	//exercise_1();
 	//exercise_2();
@@ -128,18 +128,18 @@ int main() {
 	*		 3.行号必须升序且无重复
 	*		 4.能打印给定行的文本 使用vector<string>
 	******************************/
-	//string fileName = "mountain.txt";
+	string fileName = "mountain.txt";
 	//ifstream in(fileName);
 	//if (in.is_open()) {
 	//	runQueries(in);
 	//}
 	//else cout << " open file error" << endl;
 
-	//MyTextQuery mtq(fileName);
-	//MyTextQuery mtq2(mtq);
-	//string word;
-	//cin >> word;
-	//mtq2.myprint(word);
+	MyTextQuery mtq(fileName);
+	MyTextQuery mtq2(mtq);
+	string word;
+	cin >> word;
+	mtq2.myprint(word);
 
 	return 0;
 }

@@ -8,17 +8,17 @@ TextQuery::TextQuery(ifstream& infile) : file(new vector<string>) {
         istringstream line(tmp); // 转化为 is
         string word;
         while (line >> word) {  // is ——》 每个单词
-            shared_ptr<set<unsigned int>>& lines = wm[word];  // 注意这是个指针，要new开辟空间
+            shared_ptr<set<line_no>>& lines = wm[word];  // 注意这是个指针，要new开辟空间
             if (!lines) //  如果这个单词没有的话  为空  需要开辟空间
-                lines.reset(new set<unsigned int>);  //分配一个新的set
+                lines.reset(new set<line_no>);  //分配一个新的set
             else
                 lines->insert(lineNo); // 向set中插入行号
         }
     }
 }
 
-QueryResult TextQuery::query(const string& s) {   //查询单词
-    static shared_ptr<set<unsigned int>> nodata(new set<unsigned int>);
+QueryResult TextQuery::query(const string& s) const {   //查询单词
+    static shared_ptr<set<line_no>> nodata(new set<line_no>);
     auto loc = wm.find(s);
     if (loc == wm.end()) { // 如果没有找到
         return QueryResult(s, nodata, file);
